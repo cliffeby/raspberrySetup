@@ -1,0 +1,54 @@
+This failled see below for what worked
+_______________________________________
+get http://node-arm.herokuapp.com/node_latest_armhf.deb
+sudo dpkg -i node_latest_armhf.deb
+There are some NPM native modules like node-native-keymap that didn't work when I built the first time, so you'll need some supporting libraries first:
+
+sudo apt-get install libx11-dev
+Then, from my Raspberry Pi, I did this to build my own instance of VS Code.
+
+git clone https://github.com/microsoft/vscode
+cd vscode
+./scripts/npm.sh install --arch=armhf
+This took the Raspberry Pi 3 about 20 minutes so be patient.
+
+Then, run your instance with ./scripts/code.sh from that same folder.
+
+_______________________________________
+This worked - New version of Raspian
+
+1) Install GPG key
+Code: Select all
+
+sudo wget -qO - https://packagecloud.io/headmelted/codebuilds/gpgkey | sudo apt-key add -;
+2) Add source repository
+Code: Select all
+
+sudo nano /etc/apt/sources.list
+and add ...
+Code: Select all
+
+deb https://packagecloud.io/headmelted/codebuilds/raspbian/ jessie main
+Ctrl-X, Y, enter to exit 'nano' and save the updated file.
+
+3) Install VS Code (code-oss)
+Code: Select all
+
+sudo apt-get update
+sudo apt-get install code-oss
+4) Launching VS Code (code-oss)
+
+Under the Pi desktop start menu, under Programming, there should now be a "Code - OSS" link.
+
+5) Links
+
+Headmelted home page : https://code.headmelted.com
+Package releases : https://packagecloud.io/headmelted/codebuilds
+GPG key from : https://packagecloud.io/headmelted/codebuilds/gpgkey
+
+___________________________________
+Still problems
+this didn't help
+sudo rm -rf /usr/share/code/resources/app/node_modules/vscode-textmate/node_modules
+
+But changed settings to Python3  now code runs

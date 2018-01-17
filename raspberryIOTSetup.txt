@@ -1,0 +1,22 @@
+apt-get update
+git clone https://github.com/Azure-Samples/iot-hub-python-raspberrypi-client-app.git
+
+cd iot-hub-python-raspberrypi-client-app
+nano config.py
+
+sudo chmod u+x setup.sh
+sudo ./setup.sh
+You can also specify the version you want by running sudo ./setup.sh [--python-version|-p] [2.7|3.4|3.5]. 
+If you run script without parameter, the script will automatically detect the version of python 
+installed (Search sequence 2.7->3.4->3.5). Make sure your Python version keeps consistent during building and running.
+
+remote desktop
+sudo apt-get install tightvncserver - greys out VNC server?
+
+sudo apt-get install xrdp
+
+map a drive
+sudo apt-get install samba samba-common-bin
+edit smb.conf per https://www.youtube.com/watch?v=4P5nEH9zGDI and reboot
+
+sudo apt-get install python3-matplotlib

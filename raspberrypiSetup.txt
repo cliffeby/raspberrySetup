@@ -1,0 +1,8 @@
+Reomte Desktop
+$ sudo apt-get install xrdp
+lpconfig for ip address
+
+MapDrive
+$ sudo apt-get install samba samba-common-bin
+edit smb.config per https://www.youtube.com/watch?v=4P5nEH9zGDI
+
